@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let tur = 0;
+        let count = 0;
+        
+        function Refer(quantityP, quantityT){
+            this.quantityP = quantityP;
+            this.quantityT = quantityT;
+        }
+        Refer.prototype.start = function funk(){
+           
+                 
+               function random(){ 
+            let value =  Math.random() * (3 - 2) + 2; 
+         
+            return value.toFixed(2); 
+            }
+                
+                console.log(`Соревнования начались: (участников: ${this.quantityP}, туров: ${this.quantityT})`);
+                for(let k = 1; k <= this.quantityT; k++){
+                    console.log(`Тур ${k}: `);
+
+                    for(let i = 1; i <= this.quantityP; i++){
+                    console.log(`Спортсмен ${i}: ${random()}`);
+                    }
+                }  
+        };
+      /*   Refer.prototype.stop = function funkStop(){
+            let context = funkStop.bind(this);
+           setTimeout(() => clearInterval(start),1000); 
+
+           }
+        } */
+        
+       
+        let bum = new Refer(3,3);
+        bum.start();
+        
+       /*  function random(){ 
+            let value = Math.random()* (3) - (2) + (2); 
+         
+            return value; 
+            } 
+            let value1 = `rgb(${color()}, ${color()}, ${color()})`; 
+            
+            val.style.backgroundColor = value1; 
+            val.classList.add('square'); 
+            document.body.append(val);  */
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(fio, age, gender){
+            this.fio = fio;
+            this.age = age;
+            this.gender = gender;
+        }
+        Person.prototype.log = function(){
+            console.log(`***************`);
+            console.log(`* ФИО: ${this.fio} *`);
+            console.log(`* Возраст: ${this.age} *`);
+            console.log(`* Пол сотрудника: ${this.gender} *`);
+            console.log(`***************`);
+        }
+        let person1 = new Person('Иванов Иван Иванович', 23, 'мужской');
+        person1.log();
+    </script>
+</body>
+</html>

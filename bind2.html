@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title> 
+</head> 
+<body> 
+    <script> 
+         
+            function Time(hour, min, sec){ 
+                this.sec = sec; 
+                this.min = min; 
+                this.hour = hour; 
+            } 
+                Time.prototype.correctTime = function(){ 
+                    return `${(this.hour < 10) ? '0' + this.hour : this.hour} : ${(this.min < 10) ? '0' + this.min : this.min} : ${(this.sec < 10) ? '0' + this.sec : this.sec}`; 
+                } 
+                Time.prototype.insertTime = function(){ 
+                    if(this.sec < 60){ 
+                        this.sec++; 
+                    } 
+                    if(this.sec == 60){ 
+                        this.sec = 0; 
+                        this.min++; 
+                    } 
+                    if(this.min == 60){ 
+                        this.min = 0; 
+                        this.hour++; 
+                    } 
+                    if(this.hour == 24){ 
+                        this.hour = 0; 
+                    } 
+                }; 
+                Time.prototype.startTime = function(){ 
+                    setInterval((function(){ 
+                        this.insertTime(); 
+                        console.log(this.correctTime()); 
+                    }).bind(this), 1000) 
+ 
+                    } 
+                 
+                 Time.prototype.setTimePromSeconds = function(seconds){ 
+                    if(seconds >= 24 * 3600) second = second - 24 * 3600; 
+                    this.hour = Math.trunc(seconds / 3600); 
+                    this.min = Math.trunc(seconds -(this.hour * 3600) / 60); 
+                    this.sec = seconds -( this.hour) 
+                }  
+             showTime: setInterval(() => { 
+                let context = increaseTime.bind(this); 
+                console.log(`${this.hour}:${this.minut}:${this.second}`); 
+                function increaseTime(){ 
+                    context(); 
+                     if(this.second >= 60){ 
+                    ++this.second; 
+                    console.log(this.second); 
+                     
+                }else if(this.second == 60){ 
+                    this.second = 0; 
+                } 
+                } 
+            }, 1000);   
+            
+                
+                 if(this.minut >= 60){ 
+                    ++this.minut; 
+                }else if(this.minut == 60){ 
+                    this.minut = 0; 
+                } 
+                if(this.hour >= 24){ 
+                    ++this.hour; 
+                }else if(this.hour == 24){ 
+                    this.hour = 0; 
+                }  
+             
+            
+         
+        let timer = new Time(23, 59, 50); 
+        timer.startTime(); 
+    </script> 
+</body> 
+</html>
